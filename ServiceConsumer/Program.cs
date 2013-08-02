@@ -33,7 +33,7 @@ namespace ServiceConsumer
             // test List of objects
             var customerList = new List<Customer> { new Customer { Id = 22, name = "Justin" }, new Customer { Id = 33, name = "Steve" } };
 
-            var r = new CustomerAndPolicyUpdate { TrackingNumber = Guid.NewGuid(), ProcessedEventIds = processedEventIds, TestCustomerObject = customerList };
+            var r = new CustomerAndPolicyUpdate { TrackingNumber = Guid.NewGuid(), ProcessedEventIds = processedEventIds, TestCustomer = customerList.First(), TestCustomerList = customerList.ToArray() };
             return r;
         }
         static IBus CreateBus()

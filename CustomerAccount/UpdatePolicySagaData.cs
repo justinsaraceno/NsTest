@@ -20,6 +20,9 @@ namespace CustomerAccountSystem
 
         // complex sample objects
         public Dictionary<string, List<string>> ProcessedEventIds { get; set; }
-        public List<Customer> TestCustomerObject { get; set; }
+
+        public Customer TestCustomer { get; set; }
+
+        public Customer[] TestCustomerList { get; set; }
     }
 }
