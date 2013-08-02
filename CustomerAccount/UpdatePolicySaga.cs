@@ -17,6 +17,8 @@ namespace CustomerAccountSystem
        public override void ConfigureHowToFindSaga()
        {
            ConfigureMapping<CustomerAndPolicyUpdate>(s => s.TrackingNumber).ToSaga(m => m.TrackingNumber);
+           ConfigureMapping<CustomerAndPolicyUpdate>(s => s.ProcessedEventIds).ToSaga(m => m.ProcessedEventIds);
+           ConfigureMapping<CustomerAndPolicyUpdate>(s => s.TestCustomerObject).ToSaga(m => m.TestCustomerObject);
            ConfigureMapping<BillingRequestMessage>(s => s.TrackingNumber).ToSaga(m => m.TrackingNumber);
            ConfigureMapping<PolicyChangeRequestMessage>(s => s.TrackingNumber).ToSaga(m => m.TrackingNumber);
            // Notice that we have no mappings for the OrderAuthorizationResponseMessage message. This is not needed since the HR
@@ -32,6 +34,8 @@ namespace CustomerAccountSystem
 
            //Store Saga Data 
            this.Data.TrackingNumber = message.TrackingNumber;
+           this.Data.ProcessedEventIds = message.ProcessedEventIds;
+           this.Data.TestCustomerObject = message.TestCustomerObject;
 
            //Tell the billing System to do somethign
 

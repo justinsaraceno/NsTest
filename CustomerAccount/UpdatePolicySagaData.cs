@@ -1,4 +1,5 @@
-﻿using NServiceBus.Saga;
+﻿using Model.Model;
+using NServiceBus.Saga;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +17,9 @@ namespace CustomerAccountSystem
 
         // all other properties you want persisted
         public Guid TrackingNumber { get; set; }
+
+        // complex sample objects
+        public Dictionary<string, List<string>> ProcessedEventIds { get; set; }
+        public List<Customer> TestCustomerObject { get; set; }
     }
 }
